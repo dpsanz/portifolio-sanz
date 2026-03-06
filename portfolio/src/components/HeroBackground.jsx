@@ -1,67 +1,90 @@
 const HeroBackground = () => {
   return (
     <div className="absolute inset-0 overflow-hidden">
-      {/* Base: gradiente escuro nas bordas, vermelho no centro */}
+      {/* Base escura */}
+      <div className="absolute inset-0 bg-[#050505]" />
+
+      {/* Gradiente ENORME — diagonal, cobre 70-80% da tela */}
       <div
-        className="absolute inset-0"
+        className="absolute"
         style={{
+          width: '250%',
+          height: '250%',
+          top: '-75%',
+          left: '-75%',
           background: `
-            radial-gradient(ellipse 70% 60% at 50% 40%, 
-              rgba(230, 57, 70, 0.4) 0%, 
-              rgba(181, 32, 46, 0.25) 30%, 
-              rgba(60, 10, 15, 0.15) 60%, 
-              rgba(10, 10, 10, 1) 100%
+            radial-gradient(ellipse 50% 45% at 55% 55%, 
+              rgba(200, 30, 45, 0.5) 0%, 
+              rgba(160, 22, 38, 0.35) 20%, 
+              rgba(120, 15, 28, 0.2) 40%, 
+              rgba(60, 8, 15, 0.08) 60%, 
+              transparent 75%
             )
           `,
+          transform: 'rotate(-12deg)',
         }}
       />
 
-      {/* Highlight principal — mancha de luz vermelha grande */}
+      {/* Segunda camada — reforça o centro com mais intensidade */}
       <div
-        className="absolute w-[700px] h-[500px] md:w-[900px] md:h-[650px] top-[15%] left-1/2 -translate-x-1/2"
+        className="absolute"
         style={{
-          background: 'radial-gradient(ellipse at center, rgba(230, 57, 70, 0.35) 0%, rgba(181, 32, 46, 0.15) 40%, transparent 70%)',
+          width: '200%',
+          height: '200%',
+          top: '-50%',
+          left: '-50%',
+          background: `
+            radial-gradient(ellipse 45% 40% at 52% 50%, 
+              rgba(180, 25, 42, 0.4) 0%, 
+              rgba(130, 18, 32, 0.2) 30%, 
+              rgba(80, 10, 20, 0.08) 55%, 
+              transparent 70%
+            )
+          `,
+          transform: 'rotate(-12deg)',
+          filter: 'blur(30px)',
+        }}
+      />
+
+      {/* Terceira camada — glow quente espalhado */}
+      <div
+        className="absolute"
+        style={{
+          width: '180%',
+          height: '180%',
+          top: '-40%',
+          left: '-40%',
+          background: `
+            radial-gradient(ellipse 55% 50% at 50% 48%, 
+              rgba(150, 20, 35, 0.3) 0%, 
+              rgba(100, 12, 25, 0.15) 35%, 
+              transparent 65%
+            )
+          `,
           filter: 'blur(60px)',
         }}
       />
 
-      {/* Segundo highlight — mais à esquerda, tom mais claro */}
-      <div
-        className="absolute w-[500px] h-[400px] md:w-[600px] md:h-[500px] top-[10%] left-[25%] -translate-x-1/2"
-        style={{
-          background: 'radial-gradient(ellipse at center, rgba(255, 107, 107, 0.25) 0%, rgba(230, 57, 70, 0.1) 40%, transparent 70%)',
-          filter: 'blur(80px)',
-        }}
-      />
-
-      {/* Terceiro highlight — ponto de luz concentrado */}
-      <div
-        className="absolute w-[300px] h-[250px] md:w-[400px] md:h-[350px] top-[25%] left-[55%] -translate-x-1/2"
-        style={{
-          background: 'radial-gradient(ellipse at center, rgba(255, 150, 150, 0.2) 0%, rgba(230, 57, 70, 0.08) 50%, transparent 70%)',
-          filter: 'blur(50px)',
-        }}
-      />
-
-      {/* Vinheta escura nas bordas */}
+      {/* Vinheta leve — só nas bordas extremas */}
       <div
         className="absolute inset-0"
         style={{
           background: `
-            radial-gradient(ellipse 80% 80% at 50% 50%, 
-              transparent 30%, 
-              rgba(10, 10, 10, 0.6) 70%, 
-              rgba(10, 10, 10, 0.95) 100%
+            radial-gradient(ellipse 85% 80% at 50% 45%, 
+              transparent 40%, 
+              rgba(5, 5, 5, 0.4) 65%, 
+              rgba(5, 5, 5, 0.8) 85%, 
+              rgba(5, 5, 5, 1) 100%
             )
           `,
         }}
       />
 
-      {/* Borda inferior mais escura */}
+      {/* Borda inferior */}
       <div
-        className="absolute bottom-0 left-0 right-0 h-[35%]"
+        className="absolute bottom-0 left-0 right-0 h-[25%]"
         style={{
-          background: 'linear-gradient(to top, rgba(10, 10, 10, 1) 0%, transparent 100%)',
+          background: 'linear-gradient(to top, rgba(5, 5, 5, 0.9) 0%, transparent 100%)',
         }}
       />
     </div>
